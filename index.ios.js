@@ -40,36 +40,39 @@ export default class ReactLayouts extends Component {
 
         {/* CONTENTS */}
         <View style={styles.content}>      
-          <View style={styles.content_row}>
-            <TouchableOpacity onPress={onHomePressed}>
-              <View style={styles.content_button}>
-                <Image style={styles.content_image}
-                       resizeMode={"contain"}
-                       source={require('./images/home.png')}>
-                </Image>
-                <Text style={styles.content_text}>Mes remboursements</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={onHomePressed}>
-              <View style={styles.content_button}>
-                <Image style={styles.content_image}
-                       resizeMode={"contain"}
-                       source={require('./images/home.png')}>
-                </Image>
-                <Text style={styles.content_text}>Mes contrats</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.content_row}>
-            <TouchableOpacity onPress={onHomePressed} style={styles.content_button}>
-                
+          <View style={styles.content_col}>          
+            <View style={styles.content_row}>
+              <TouchableOpacity onPress={onHomePressed}>
+                <View style={styles.content_button}>
                   <Image style={styles.content_image}
                          resizeMode={"contain"}
                          source={require('./images/home.png')}>
                   </Image>
-                  <Text style={{ color:'white', numberOfLines:'2' }}>Mes informations personnelles</Text>
-                
+                  <Text style={styles.content_text}>Mes remboursements</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onHomePressed}>
+                <View style={styles.content_button}>
+                  <Image style={styles.content_image}
+                         resizeMode={"contain"}
+                         source={require('./images/home.png')}>
+                  </Image>
+                  <Text style={styles.content_text}>Mes contrats</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.content_col}>          
+            <View style={styles.content_row}>
+              <TouchableOpacity onPress={onHomePressed}>
+                <View style={styles.content_button}>
+                  <Image style={styles.content_image}
+                         resizeMode={"contain"}
+                         source={require('./images/home.png')}>
+                  </Image>
+                  <Text ellipsizeMode='clip' numberOfLines={2} style={styles.content_text}>Mes informations personnelles</Text>
+                </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={onHomePressed}>
                 <View style={styles.content_button}>
@@ -80,10 +83,12 @@ export default class ReactLayouts extends Component {
                   <Text style={styles.content_text}>Contactez-nous</Text>
                 </View>
               </TouchableOpacity>
+            </View>
           </View>
 
-          <View style={styles.content_row}>
-            <TouchableOpacity onPress={onHomePressed}>
+          <View style={styles.content_col}>          
+            <View style={styles.content_row}>
+              <TouchableOpacity onPress={onHomePressed}>
                 <View style={styles.content_button}>
                   <Image style={styles.content_image}
                          resizeMode={"contain"}
@@ -101,12 +106,13 @@ export default class ReactLayouts extends Component {
                   <Text style={styles.content_text}>Mentions légales</Text>
                 </View>
               </TouchableOpacity>
+            </View>
           </View>
 
-
-          <View style={styles.content_row}>
-          </View>
         </View>
+
+
+
 
 
         { /* TAB BAR */ }
@@ -172,20 +178,27 @@ var styles = StyleSheet.create({
       flex:1,
     },
 
-    content_row: {
+    content_col: {
       paddingBottom: 32, 
       paddingTop: 32,
       flex:1,
-      backgroundColor:'#55FFc0',
-      flexDirection:'row',
-      justifyContent: 'space-between'
+      backgroundColor:'pink',
     },
+
+    content_row: {
+      flex:1,
+      backgroundColor:'teal',
+      flexDirection:'row',
+      justifyContent: 'space-around'
+    },
+
     content_button: {
       flexDirection:'column',
       justifyContent: 'space-around',
       alignItems: 'center',
-      backgroundColor: "rgba(0,0,0,255)",
-      height:96
+      backgroundColor: "black",
+      height:96,
+      width:144
     },
     content_image: {
       height: 64, 
@@ -193,6 +206,7 @@ var styles = StyleSheet.create({
     },
     content_text: {
       backgroundColor: "rgba(0,92,45,255)",
+      textAlign:'center'
     },
 
 
