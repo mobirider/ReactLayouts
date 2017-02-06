@@ -46,22 +46,31 @@ export default class ReactLayouts extends Component {
         { /* TAB BAR */ }
         <View style={styles.tab_bar}>
           <TouchableOpacity onPress={onHomePressed}>
-            <Image style={styles.tab_image}
-                   resizeMode={"contain"}
-                   source={require('./images/home.png')}>
-            </Image>
+            <View>
+              <Image style={styles.tab_image}
+                     resizeMode={"contain"}
+                     source={require('./images/home.png')}>
+              </Image>
+              <Text style={{backgroundColor: 'red', textAlign:'center'}}>Accueil</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={onSettingsPressed}>
-            <Image style={styles.tab_image}
-                   resizeMode={"contain"}
-                   source={require('./images/phone.png')}>
-            </Image>
+            <View>
+              <Image style={styles.tab_image}
+                     resizeMode={"contain"}
+                     source={require('./images/phone.png')}>
+              </Image>
+              <Text style={{backgroundColor: 'red', textAlign:'center'}}>Urgences</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={onSettingsPressed}>
-            <Image style={styles.tab_image}
-                   resizeMode={"contain"}
-                   source={require('./images/settings.png')}>
-            </Image>
+            <View>
+              <Image style={styles.tab_image}
+                     resizeMode={"contain"}
+                     source={require('./images/settings.png')}>
+              </Image>
+              <Text style={{backgroundColor: 'red', textAlign:'center'}}>Paramètres</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>        
@@ -103,13 +112,12 @@ var styles = StyleSheet.create({
     },
 
     tab_image: {
-      
       height: 32, 
       backgroundColor: "rgba(128,255,0,255)",
     },
 
     toolbarButton:{
-        width: 50,            //Step 2
+        width: 50,
         color:'#fff',
         backgroundColor:'red',
         textAlign:'center'
