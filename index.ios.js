@@ -37,9 +37,75 @@ export default class ReactLayouts extends Component {
           </View>
         </View>
 
+
         {/* CONTENTS */}
         <View style={styles.content}>      
-            <Text>This is the content</Text>
+          <View style={styles.content_row}>
+            <TouchableOpacity onPress={onHomePressed}>
+              <View style={styles.content_button}>
+                <Image style={styles.content_image}
+                       resizeMode={"contain"}
+                       source={require('./images/home.png')}>
+                </Image>
+                <Text style={styles.content_text}>Mes remboursements</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onHomePressed}>
+              <View style={styles.content_button}>
+                <Image style={styles.content_image}
+                       resizeMode={"contain"}
+                       source={require('./images/home.png')}>
+                </Image>
+                <Text style={styles.content_text}>Mes contrats</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.content_row}>
+            <TouchableOpacity onPress={onHomePressed} style={styles.content_button}>
+                
+                  <Image style={styles.content_image}
+                         resizeMode={"contain"}
+                         source={require('./images/home.png')}>
+                  </Image>
+                  <Text style={{ color:'white', numberOfLines:'2' }}>Mes informations personnelles</Text>
+                
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onHomePressed}>
+                <View style={styles.content_button}>
+                  <Image style={styles.content_image}
+                         resizeMode={"contain"}
+                         source={require('./images/home.png')}>
+                  </Image>
+                  <Text style={styles.content_text}>Contactez-nous</Text>
+                </View>
+              </TouchableOpacity>
+          </View>
+
+          <View style={styles.content_row}>
+            <TouchableOpacity onPress={onHomePressed}>
+                <View style={styles.content_button}>
+                  <Image style={styles.content_image}
+                         resizeMode={"contain"}
+                         source={require('./images/home.png')}>
+                  </Image>
+                  <Text style={styles.content_text}>Qui sommes-nous ?</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onHomePressed}>
+                <View style={styles.content_button}>
+                  <Image style={styles.content_image}
+                         resizeMode={"contain"}
+                         source={require('./images/home.png')}>
+                  </Image>
+                  <Text style={styles.content_text}>Mentions légales</Text>
+                </View>
+              </TouchableOpacity>
+          </View>
+
+
+          <View style={styles.content_row}>
+          </View>
         </View>
 
 
@@ -51,7 +117,7 @@ export default class ReactLayouts extends Component {
                      resizeMode={"contain"}
                      source={require('./images/home.png')}>
               </Image>
-              <Text style={{backgroundColor: 'red', textAlign:'center'}}>Accueil</Text>
+              <Text style={styles.tab_text}>Accueil</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={onSettingsPressed}>
@@ -60,7 +126,7 @@ export default class ReactLayouts extends Component {
                      resizeMode={"contain"}
                      source={require('./images/phone.png')}>
               </Image>
-              <Text style={{backgroundColor: 'red', textAlign:'center'}}>Urgences</Text>
+              <Text style={styles.tab_text}>Urgences</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={onSettingsPressed}>
@@ -69,7 +135,7 @@ export default class ReactLayouts extends Component {
                      resizeMode={"contain"}
                      source={require('./images/settings.png')}>
               </Image>
-              <Text style={{backgroundColor: 'red', textAlign:'center'}}>Paramètres</Text>
+              <Text style={styles.tab_text}>Paramètres</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -85,17 +151,7 @@ var styles = StyleSheet.create({
       flex:1 // take all available space
     },
 
-    logo_image: {
-      width: 128, 
-      height: 96, 
-      backgroundColor: "rgba(0,255,0,255)",
-    },
-
-    content: {
-      backgroundColor:'#ebee00',
-      flex:1,
-    },
-
+    /* =============================================== */
     top_bar:{
         backgroundColor:'#81c04d',
         paddingTop:0,
@@ -103,6 +159,44 @@ var styles = StyleSheet.create({
         flexDirection:'column'
     },
 
+    logo_image: {
+      width: 128, 
+      height: 96, 
+      backgroundColor: "rgba(0,255,0,255)",
+    },
+    
+
+    /* =============================================== */
+    content: {
+      backgroundColor:'#ebee00',
+      flex:1,
+    },
+
+    content_row: {
+      paddingBottom: 32, 
+      paddingTop: 32,
+      flex:1,
+      backgroundColor:'#55FFc0',
+      flexDirection:'row',
+      justifyContent: 'space-between'
+    },
+    content_button: {
+      flexDirection:'column',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      backgroundColor: "rgba(0,0,0,255)",
+      height:96
+    },
+    content_image: {
+      height: 64, 
+      backgroundColor: "rgba(232,92,33,255)",
+    },
+    content_text: {
+      backgroundColor: "rgba(0,92,45,255)",
+    },
+
+
+    /* =============================================== */
     tab_bar:{
       paddingBottom: 8, 
       paddingTop: 8,
@@ -116,18 +210,9 @@ var styles = StyleSheet.create({
       backgroundColor: "rgba(128,255,0,255)",
     },
 
-    toolbarButton:{
-        width: 50,
-        color:'#fff',
-        backgroundColor:'red',
-        textAlign:'center'
-    },
-    toolbarTitle:{
-        color:'#fff',
-        textAlign:'center',
-        fontWeight:'bold',
-        backgroundColor: 'blue',
-        flex:1                // container will use all available space
+    tab_text: {
+      backgroundColor: 'red', 
+      textAlign:'center'
     }
 });
 
