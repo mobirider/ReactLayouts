@@ -42,73 +42,78 @@ export default class ReactLayouts extends Component {
         <View style={styles.content}>      
           <View style={styles.content_col}>          
             <View style={styles.content_row}>
-              <TouchableOpacity onPress={onHomePressed}>
-                <View style={styles.content_button}>
-                  <Image style={styles.content_image}
-                         resizeMode={"contain"}
-                         source={require('./images/home.png')}>
-                  </Image>
+              <View style={styles.content_textbutton}>
+                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                      <Image style={styles.content_image}
+                             resizeMode={"contain"}
+                             source={require('./images/home.png')}>
+                      </Image>
+                  </TouchableOpacity>
                   <Text style={styles.content_text}>Mes remboursements</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={onHomePressed}>
-                <View style={styles.content_button}>
-                  <Image style={styles.content_image}
-                         resizeMode={"contain"}
-                         source={require('./images/home.png')}>
-                  </Image>
+              </View>
+              <View style={styles.content_textbutton}>
+                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                      <Image style={styles.content_image}
+                             resizeMode={"contain"}
+                             source={require('./images/home.png')}>
+                      </Image>
+                  </TouchableOpacity>
                   <Text style={styles.content_text}>Mes contrats</Text>
-                </View>
-              </TouchableOpacity>
+              </View>
             </View>
           </View>
 
+
+          {/* ROW 2 */}
           <View style={styles.content_col}>          
             <View style={styles.content_row}>
-              <TouchableOpacity onPress={onHomePressed}>
-                <View style={styles.content_button}>
-                  <Image style={styles.content_image}
-                         resizeMode={"contain"}
-                         source={require('./images/home.png')}>
-                  </Image>
+              <View style={styles.content_textbutton}>
+                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                      <Image style={styles.content_image}
+                             resizeMode={"contain"}
+                             source={require('./images/home.png')}>
+                      </Image>
+                  </TouchableOpacity>
                   <Text ellipsizeMode='clip' numberOfLines={2} style={styles.content_text}>Mes informations personnelles</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={onHomePressed}>
-                <View style={styles.content_button}>
-                  <Image style={styles.content_image}
-                         resizeMode={"contain"}
-                         source={require('./images/home.png')}>
-                  </Image>
+              </View>
+
+              <View style={styles.content_textbutton}>
+                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                      <Image style={styles.content_image}
+                             resizeMode={"contain"}
+                             source={require('./images/home.png')}>
+                      </Image>
+                  </TouchableOpacity>
                   <Text style={styles.content_text}>Contactez-nous</Text>
-                </View>
-              </TouchableOpacity>
+              </View>
             </View>
           </View>
 
+
+          {/* ROW 3 */}
           <View style={styles.content_col}>          
             <View style={styles.content_row}>
-              <TouchableOpacity onPress={onHomePressed}>
-                <View style={styles.content_button}>
-                  <Image style={styles.content_image}
-                         resizeMode={"contain"}
-                         source={require('./images/home.png')}>
-                  </Image>
+                <View style={styles.content_textbutton}>
+                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                      <Image style={styles.content_image}
+                             resizeMode={"contain"}
+                             source={require('./images/home.png')}>
+                      </Image>
+                  </TouchableOpacity>
                   <Text style={styles.content_text}>Qui sommes-nous ?</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={onHomePressed}>
-                <View style={styles.content_button}>
-                  <Image style={styles.content_image}
-                         resizeMode={"contain"}
-                         source={require('./images/home.png')}>
-                  </Image>
+              </View>
+              
+              <View style={styles.content_textbutton}>
+                  <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                      <Image style={styles.content_image}
+                             resizeMode={"contain"}
+                             source={require('./images/home.png')}>
+                      </Image>
+                  </TouchableOpacity>
                   <Text style={styles.content_text}>Mentions légales</Text>
-                </View>
-              </TouchableOpacity>
+              </View>
             </View>
           </View>
-
         </View>
 
 
@@ -179,8 +184,8 @@ var styles = StyleSheet.create({
     },
 
     content_col: {
-      paddingBottom: 32, 
-      paddingTop: 32,
+      paddingBottom: 16, 
+      paddingTop: 16,
       flex:1,
       backgroundColor:'pink',
     },
@@ -190,25 +195,40 @@ var styles = StyleSheet.create({
       backgroundColor:'teal',
       flexDirection:'row',
       justifyContent: 'space-around'
+
     },
 
-    content_button: {
+    content_textbutton: {
       flexDirection:'column',
       justifyContent: 'space-around',
       alignItems: 'center',
-      backgroundColor: "black",
+      backgroundColor: 'yellow',
       height:96,
       width:144
     },
     content_image: {
       height: 64, 
+      width: 64,
+      borderRadius: 16,
       backgroundColor: "rgba(232,92,33,255)",
     },
     content_text: {
+      color:'gray',
       backgroundColor: "rgba(0,92,45,255)",
       textAlign:'center'
     },
-
+    content_button: {
+      backgroundColor: 'rgba(232,92,33,255)',
+      borderRadius: 10,
+      padding: 10,
+      shadowColor: '#000000',
+      shadowOffset: {
+        width: 0,
+        height: 3
+      },
+      shadowRadius: 5,
+      shadowOpacity: 1.0
+    },
 
     /* =============================================== */
     tab_bar:{
@@ -225,8 +245,9 @@ var styles = StyleSheet.create({
     },
 
     tab_text: {
-      backgroundColor: 'red', 
-      textAlign:'center'
+      /*backgroundColor: 'red', */
+      textAlign:'center',
+      color:'gray'
     }
 });
 
