@@ -43,19 +43,19 @@ export default class ReactLayouts extends Component {
           <View style={styles.content_col}>          
             <View style={styles.content_row}>
               <View style={styles.content_textbutton}>
-                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                    <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
                              resizeMode={"contain"}
-                             source={require('./images/home.png')}>
+                             source={require('./images/euro.png')}>
                       </Image>
                   </TouchableOpacity>
                   <Text style={styles.content_text}>Mes remboursements</Text>
               </View>
               <View style={styles.content_textbutton}>
-                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                    <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
                              resizeMode={"contain"}
-                             source={require('./images/home.png')}>
+                             source={require('./images/document.png')}>
                       </Image>
                   </TouchableOpacity>
                   <Text style={styles.content_text}>Mes contrats</Text>
@@ -68,20 +68,20 @@ export default class ReactLayouts extends Component {
           <View style={styles.content_col}>          
             <View style={styles.content_row}>
               <View style={styles.content_textbutton}>
-                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                    <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
                              resizeMode={"contain"}
-                             source={require('./images/home.png')}>
+                             source={require('./images/user.png')}>
                       </Image>
                   </TouchableOpacity>
                   <Text ellipsizeMode='clip' numberOfLines={2} style={styles.content_text}>Mes informations personnelles</Text>
               </View>
 
               <View style={styles.content_textbutton}>
-                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                    <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
                              resizeMode={"contain"}
-                             source={require('./images/home.png')}>
+                             source={require('./images/mail.png')}>
                       </Image>
                   </TouchableOpacity>
                   <Text style={styles.content_text}>Contactez-nous</Text>
@@ -94,20 +94,20 @@ export default class ReactLayouts extends Component {
           <View style={styles.content_col}>          
             <View style={styles.content_row}>
                 <View style={styles.content_textbutton}>
-                    <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                    <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
                              resizeMode={"contain"}
-                             source={require('./images/home.png')}>
+                             source={require('./images/question.png')}>
                       </Image>
                   </TouchableOpacity>
                   <Text style={styles.content_text}>Qui sommes-nous ?</Text>
               </View>
               
               <View style={styles.content_textbutton}>
-                  <TouchableOpacity style={styles.content_button} onPress={onHomePressed}>
+                  <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
                              resizeMode={"contain"}
-                             source={require('./images/home.png')}>
+                             source={require('./images/exclamation.png')}>
                       </Image>
                   </TouchableOpacity>
                   <Text style={styles.content_text}>Mentions légales</Text>
@@ -157,7 +157,7 @@ export default class ReactLayouts extends Component {
 
 var styles = StyleSheet.create({
     mainContainer: {
-      backgroundColor:'#ebeef0',
+      backgroundColor:'red',
       flexDirection:'column',
       flex:1 // take all available space
     },
@@ -179,13 +179,13 @@ var styles = StyleSheet.create({
 
     /* =============================================== */
     content: {
-      backgroundColor:'#ebee00',
+      backgroundColor:'white',
       flex:1,
+      paddingBottom:32,
+      paddingTop:16,
     },
 
     content_col: {
-      paddingBottom: 16, 
-      paddingTop: 16,
       flex:1,
       backgroundColor:'pink',
     },
@@ -195,15 +195,14 @@ var styles = StyleSheet.create({
       backgroundColor:'teal',
       flexDirection:'row',
       justifyContent: 'space-around'
-
     },
 
     content_textbutton: {
       flexDirection:'column',
-      justifyContent: 'space-around',
+      justifyContent: 'flex-start',
       alignItems: 'center',
       backgroundColor: 'yellow',
-      height:96,
+      height:128,
       width:144
     },
     content_image: {
@@ -214,7 +213,7 @@ var styles = StyleSheet.create({
     },
     content_text: {
       color:'gray',
-      backgroundColor: "rgba(0,92,45,255)",
+      backgroundColor: "black",
       textAlign:'center'
     },
     content_button: {
@@ -264,5 +263,14 @@ const onPhonePressed = () => {
 const onSettingsPressed = () => {
   Alert.alert("settings press");
 }
+
+const onButtonPressed = () => {
+  Alert.alert("button press");
+}
+
+
+
+
+
 
 AppRegistry.registerComponent('ReactLayouts', () => ReactLayouts);
