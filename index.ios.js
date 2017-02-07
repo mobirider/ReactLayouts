@@ -16,6 +16,7 @@ import {
   View
 } from 'react-native';
 
+require('./modules/modules.js');
 
 /* ============================================================================================================= */
 /* CODE PUSH                                                                                                     */
@@ -23,10 +24,10 @@ import {
 import CodePush from "react-native-code-push";
 
 // check updates each time app returns to foreground
-// let codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME };
+let codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME };
 
 // manually check updates
-let codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
+// let codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
 
 ReactLayouts = CodePush(codePushOptions)(ReactLayouts); // cette syntaxe lô
 
@@ -287,8 +288,6 @@ const onSettingsPressed = () => {
     updateDialog: true, 
     installMode: CodePush.InstallMode.IMMEDIATE
   });
-
-
 }
 
 const onButtonPressed = () => {
