@@ -131,7 +131,7 @@ export default class ReactLayouts extends Component {
               <Text style={styles.tab_text}>Accueil</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={onSettingsPressed}>
+          <TouchableOpacity onPress={onPhonePressed}>
             <View>
               <Image style={styles.tab_image}
                      resizeMode={"contain"}
@@ -157,23 +157,22 @@ export default class ReactLayouts extends Component {
 
 var styles = StyleSheet.create({
     mainContainer: {
-      backgroundColor:'red',
+      /*backgroundColor:'red',*/
       flexDirection:'column',
       flex:1 // take all available space
     },
 
     /* =============================================== */
     top_bar:{
-        backgroundColor:'#81c04d',
-        paddingTop:0,
+        /*backgroundColor:'#81c04d',*/
         paddingBottom:10,
         flexDirection:'column'
     },
 
     logo_image: {
       width: 128, 
-      height: 96, 
-      backgroundColor: "rgba(0,255,0,255)",
+      height: 96
+      /*backgroundColor: "rgba(0,255,0,255)",*/
     },
     
 
@@ -187,21 +186,21 @@ var styles = StyleSheet.create({
 
     content_col: {
       flex:1,
-      backgroundColor:'pink',
+      /*backgroundColor:'pink',*/
     },
 
     content_row: {
       flex:1,
-      backgroundColor:'teal',
+      /*backgroundColor:'teal',*/
       flexDirection:'row',
       justifyContent: 'space-around'
     },
 
     content_textbutton: {
       flexDirection:'column',
-      justifyContent: 'flex-start',
+      justifyContent: 'space-around',
       alignItems: 'center',
-      backgroundColor: 'yellow',
+      /*backgroundColor: 'yellow',*/
       height:128,
       width:144
     },
@@ -209,11 +208,10 @@ var styles = StyleSheet.create({
       height: 64, 
       width: 64,
       borderRadius: 16,
-      backgroundColor: "rgba(232,92,33,255)",
     },
     content_text: {
       color:'gray',
-      backgroundColor: "black",
+      /*backgroundColor: "black",*/
       textAlign:'center'
     },
     content_button: {
@@ -233,20 +231,19 @@ var styles = StyleSheet.create({
     tab_bar:{
       paddingBottom: 8, 
       paddingTop: 8,
-      backgroundColor:'#55c0FF',
+      backgroundColor:'gray',
       flexDirection:'row',
       justifyContent: 'space-between'
     },
 
     tab_image: {
       height: 32, 
-      backgroundColor: "rgba(128,255,0,255)",
     },
 
     tab_text: {
       /*backgroundColor: 'red', */
       textAlign:'center',
-      color:'gray'
+      color:'white'
     }
 });
 
