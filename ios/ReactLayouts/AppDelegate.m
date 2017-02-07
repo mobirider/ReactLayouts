@@ -25,8 +25,8 @@
 #else
     jsCodeLocation = [CodePush bundleURL];
 #endif
-   
-
+  
+//  jsCodeLocation = [CodePush bundleURL];
   
   
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
@@ -40,6 +40,15 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  
+  // DEBUG
+  UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"debug" message:[jsCodeLocation path] preferredStyle:(UIAlertControllerStyleAlert)];
+  [alert addAction:[UIAlertAction actionWithTitle:@"ok" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    ;
+  }]];
+  [rootViewController presentViewController:alert animated:NO completion:nil];
+  
   return YES;
 }
 
