@@ -17,6 +17,22 @@ import {
 } from 'react-native';
 
 
+/* ============================================================================================================= */
+/* CODE PUSH                                                                                                     */
+/* ============================================================================================================= */
+import CodePush from "react-native-code-push";
+
+// check updates each time app returns to foreground
+// let codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME };
+
+// manually check updates
+let codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
+
+ReactLayouts = CodePush(codePushOptions)(ReactLayouts); // cette syntaxe lô
+
+/* ============================================================================================================= */
+/* MAIN CLASS                                                                                                    */
+/* ============================================================================================================= */
 export default class ReactLayouts extends Component {
   render() {
     return (
@@ -155,6 +171,10 @@ export default class ReactLayouts extends Component {
   }
 }
 
+
+/* ============================================================================================================= */
+/* STYLESHEETS                                                                                                   */
+/* ============================================================================================================= */
 var styles = StyleSheet.create({
     mainContainer: {
       /*backgroundColor:'red',*/
@@ -248,7 +268,9 @@ var styles = StyleSheet.create({
 });
 
 
-
+/* ============================================================================================================= */
+/* CALLBACKS                                                                                                     */
+/* ============================================================================================================= */
 const onHomePressed = () => {
   Alert.alert("home press");
 }
@@ -258,7 +280,15 @@ const onPhonePressed = () => {
 }
 
 const onSettingsPressed = () => {
-  Alert.alert("settings press");
+  // Alert.alert("settings press");
+  CodePush.sync({
+    // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
+    // Il ne faut pas de dialogue d'update, ça doit être invisible.
+    updateDialog: true, 
+    installMode: CodePush.InstallMode.IMMEDIATE
+  });
+
+
 }
 
 const onButtonPressed = () => {
@@ -266,8 +296,5 @@ const onButtonPressed = () => {
 }
 
 
-
-
-
-
 AppRegistry.registerComponent('ReactLayouts', () => ReactLayouts);
+
