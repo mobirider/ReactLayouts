@@ -3,7 +3,6 @@
  * @flow
  */
 'use-strict';
-require("./legal.js");
 
 import React, { Component } from 'react';
 import {
@@ -13,6 +12,9 @@ import {
   Alert,
   TouchableOpacity,
   Image,
-  LegalButton,
   View
 } from 'react-native';
+
+// modules go here
+// require("./legal.js");
+import LegalButton from './legal.js'

@@ -20,22 +20,20 @@ import {
 /* MAIN CLASS                                                                                                    */
 /* ============================================================================================================= */
 export default class LegalButton extends Component {
-  render() {
-    return (
-      	<View>        
-        {/*  */}
-			<View style={styles.content_textbutton}>
+
+  	render() {
+		return (
+		    <View style={styles.content_textbutton}>
 				<TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
 				  <Image style={styles.content_image}
 				         resizeMode={"contain"}
 				         source={require('./../images/exclamation.png')}>
 				  </Image>
 				</TouchableOpacity>
-			<Text style={styles.content_text}>Mentions légales</Text>
+			<Text style={styles.content_text}>Module Button</Text>
 			</View>
-        </View>
-    );
-  }
+		);
+	}
 }
 
 
@@ -81,5 +79,5 @@ var styles = StyleSheet.create({
 /* CALLBACKS                                                                                                     */
 /* ============================================================================================================= */
 const onButtonPressed = () => {
-  Alert.alert("legal press");
+  Alert.alert("Mentions légales");
 }

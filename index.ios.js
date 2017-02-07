@@ -16,7 +16,9 @@ import {
   View
 } from 'react-native';
 
-require('./modules/modules.js');
+// require('./modules/modules.js');
+
+import LegalButton from './modules/legal.js'
 
 /* ============================================================================================================= */
 /* CODE PUSH                                                                                                     */
@@ -120,6 +122,8 @@ export default class ReactLayouts extends Component {
                   <Text style={styles.content_text}>Qui sommes-nous ?</Text>
               </View>
               
+              <LegalButton/>
+              {/*
               <View style={styles.content_textbutton}>
                   <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
@@ -129,6 +133,7 @@ export default class ReactLayouts extends Component {
                   </TouchableOpacity>
                   <Text style={styles.content_text}>Mentions légales</Text>
               </View>
+              */}
             </View>
           </View>
         </View>
@@ -157,6 +162,7 @@ export default class ReactLayouts extends Component {
               <Text style={styles.tab_text}>Urgences</Text>
             </View>
           </TouchableOpacity>
+          
           <TouchableOpacity onPress={onSettingsPressed}>
             <View>
               <Image style={styles.tab_image}

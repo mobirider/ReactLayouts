@@ -20,14 +20,13 @@
   NSURL *jsCodeLocation;
 
   
-#ifdef DEBUG
-    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-#else
-    jsCodeLocation = [CodePush bundleURL];
-#endif
+//#ifdef DEBUG
+//    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+//#else
+//    jsCodeLocation = [CodePush bundleURL];
+//#endif
   
-//  jsCodeLocation = [CodePush bundleURL];
-  
+  jsCodeLocation = [CodePush bundleURL];
   
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ReactLayouts"
@@ -43,11 +42,11 @@
   
   
   // DEBUG
-  UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"debug" message:[jsCodeLocation path] preferredStyle:(UIAlertControllerStyleAlert)];
-  [alert addAction:[UIAlertAction actionWithTitle:@"ok" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-    ;
-  }]];
-  [rootViewController presentViewController:alert animated:NO completion:nil];
+//  UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"debug" message:[jsCodeLocation path] preferredStyle:(UIAlertControllerStyleAlert)];
+//  [alert addAction:[UIAlertAction actionWithTitle:@"ok" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+//    ;
+//  }]];
+//  [rootViewController presentViewController:alert animated:NO completion:nil];
   
   return YES;
 }
