@@ -37,6 +37,17 @@ export default class LegalButton extends Component {
 }
 
 
+export class LegalScene extends Component {
+
+  	render() {
+		return (
+		    <View>
+			</View>
+		);
+	}
+}
+
+
 /* ============================================================================================================= */
 /* STYLESHEETS                                                                                                   */
 /* ============================================================================================================= */
@@ -79,5 +90,8 @@ var styles = StyleSheet.create({
 /* CALLBACKS                                                                                                     */
 /* ============================================================================================================= */
 const onButtonPressed = () => {
-  Alert.alert("Mentions légales");
+  
+
+
+
 }

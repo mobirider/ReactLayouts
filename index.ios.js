@@ -13,12 +13,14 @@ import {
   Alert,
   TouchableOpacity,
   Image,
-  View
+  View,
+  Navigator
 } from 'react-native';
 
 // require('./modules/modules.js');
 
-import LegalButton from './modules/legal.js'
+import LegalButton from './modules/legal.js';
+import ModuleManager from './modules/modules.js';
 
 /* ============================================================================================================= */
 /* CODE PUSH                                                                                                     */
@@ -30,12 +32,12 @@ let codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME };
 
 // manually check updates
 // let codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
-
 ReactLayouts = CodePush(codePushOptions)(ReactLayouts); // cette syntaxe lô
 
 /* ============================================================================================================= */
 /* MAIN CLASS                                                                                                    */
 /* ============================================================================================================= */
+
 export default class ReactLayouts extends Component {
   render() {
     return (
@@ -122,7 +124,7 @@ export default class ReactLayouts extends Component {
                   <Text style={styles.content_text}>Qui sommes-nous ?</Text>
               </View>
               
-              <LegalButton/>
+              <LegalButton />
               {/*
               <View style={styles.content_textbutton}>
                   <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
@@ -291,7 +293,7 @@ const onSettingsPressed = () => {
   CodePush.sync({
     // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
     // Il ne faut pas de dialogue d'update, ça doit être invisible.
-    updateDialog: true, 
+    updateDialog: false, 
     installMode: CodePush.InstallMode.IMMEDIATE
   });
 }
@@ -302,4 +304,3 @@ const onButtonPressed = () => {
 
 
 AppRegistry.registerComponent('ReactLayouts', () => ReactLayouts);
-

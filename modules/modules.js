@@ -17,4 +17,17 @@ import {
 
 // modules go here
 // require("./legal.js");
-import LegalButton from './legal.js'
+import LegalButton from './legal.js';
+
+
+export default class ModuleManager {
+
+	constructor() {
+    	
+  	}
+
+  	getModule(aIndex) {
+  		return LegalButton();
+  	}
+
+}

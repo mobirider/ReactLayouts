@@ -18,15 +18,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
+  
+#if defined(__i386__)  || defined(__x86_64__) // #ifdef DEBUG
+  /* Run code if in Simulator */
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+
+#else
+  /* Run code if in device */
+  jsCodeLocation = [CodePush bundleURL];
+#endif
 
   
-//#ifdef DEBUG
-//    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-//#else
-//    jsCodeLocation = [CodePush bundleURL];
-//#endif
-  
-  jsCodeLocation = [CodePush bundleURL];
   
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ReactLayouts"
