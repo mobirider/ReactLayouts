@@ -10,24 +10,28 @@ import {
   StyleSheet,
   Text,
   Alert,
+  Navigator,
   TouchableOpacity,
   Image,
   View
 } from 'react-native';
 
 // modules go here
-// require("./legal.js");
-import LegalButton from './LegalButton.js';
+import LegalScene from './LegalScene.js';
+import MainScene from './../app/MainScene.js';
 
-
-export default class ModuleManager {
-
-  constructor() {
-      
+export default class ModuleManager extends Component {
+    render() {
+        return (
+            <Navigator  initialRoute={{ title: 'home', index: 0 }}
+                        renderScene={(route, navigator) => {
+                            switch (route.id) {
+                            default:
+                                return <MainScene nav = {navigator} />
+                            case 'legal':
+                                return <LegalScene nav = {navigator} />
+                            }}
+                        }/>
+        );
     }
-
-    getModule(aIndex) {
-      return LegalButton();
-    }
-
 }

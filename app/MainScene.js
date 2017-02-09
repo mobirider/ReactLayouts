@@ -100,12 +100,21 @@ export default class MainScene extends Component {
           {/* ROW 3 */}
           <View style={styles.content_col}>  
             <View style={styles.content_row}>
-              <LegalButton />
-
+              <MainButton name='Legal' 
+                          uri="https://lh3.googleusercontent.com/WjU5CdsZ_mazg6Em4V4nCd97nlMHzgVH6FqEiICEGwPGBVDa5eOeiZbw02Mjbz8W25QHOY8pLmKfV_U=w1440-h839"
+                          onPress={() => {
+                              this.props.nav.push({
+                                  id: 'legal',
+                                  data: Object
+                              });
+                          }}/>
               <MainButton name='Question' 
                           uri="https://lh3.googleusercontent.com/WjU5CdsZ_mazg6Em4V4nCd97nlMHzgVH6FqEiICEGwPGBVDa5eOeiZbw02Mjbz8W25QHOY8pLmKfV_U=w1440-h839"
                           onPress={() => {
-                              Alert.alert("question press")
+                              this.props.nav.push({
+                                  id: 'home',
+                                  data: Object
+                                });
                           }}/>
             </View>
           </View>

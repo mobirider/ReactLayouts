@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Text,
   Alert,
+  WebView,
   Navigator,
   TouchableOpacity,
   Image,
@@ -20,33 +21,23 @@ import MainButton from './../app/MainButton.js';
 /* ============================================================================================================= */
 /* MAIN CLASS                                                                                                    */
 /* ============================================================================================================= */
-export default class LegalButton extends MainButton {
-  render() {
-    return (
-      <MainButton name="Mentions légales"
-                  uri="https://lh4.googleusercontent.com/VgMKjCsks28SPZXk7s_BSXwA16By0Lj7DTJ3tLFppuLp43o7GcLRj5_3ELfVnuzx0OFea9RW8Oye_Fc=w1440-h839" 
-                  onPress={() => {
-                      Alert.alert(this.props.nav)
-                  }} />
-      );
-  }
-}
-
-class LegalScene extends Component {
+export default class LegalScene extends Component {
     render() {
     return (
-        <View>
-        <Image 
-            resizeMode={"contain"}
-            source={require('./../images/vs_logo.png')} />
-          <Image/>
+        <View style={{backgroundColor:'white', flexDirection:'column', flex:1 }}>
+            <WebView style={{
+                backgroundColor: 'white',
+                height: 200,
+              }} 
+              source={{uri:'https://google.fr/'}} />
+            
       </View>
     );
   }
 }
 
 
-LegalButton.propTypes = {
+LegalScene.propTypes = {
   nav: PropTypes.object.isRequired,
 }
 

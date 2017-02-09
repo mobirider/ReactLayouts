@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 
 import MainScene from './app/MainScene';
+import ModuleManager from './app_modules/ModuleManager';
 
 /* ============================================================================================================= */
 /* CODE PUSH                                                                                                     */
@@ -37,13 +38,14 @@ ReactLayouts = CodePush(codePushOptions)(ReactLayouts); // cette syntaxe lô
 export default class ReactLayouts extends Component {
   render() {
     return (
-      <Navigator
+      <ModuleManager />
+      /*<Navigator
         initialRoute={{ title: 'My Initial Scene', index: 0 }}
         renderScene={(route, navigator) =>
             <MainScene nav = {navigator} >
             </MainScene>
         }
-      />
+      />*/
     );
   }
 }
