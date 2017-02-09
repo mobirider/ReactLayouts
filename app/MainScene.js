@@ -101,7 +101,7 @@ export default class MainScene extends Component {
           <View style={styles.content_col}>  
             <View style={styles.content_row}>
               <MainButton name='Legal' 
-                          uri="https://lh3.googleusercontent.com/WjU5CdsZ_mazg6Em4V4nCd97nlMHzgVH6FqEiICEGwPGBVDa5eOeiZbw02Mjbz8W25QHOY8pLmKfV_U=w1440-h839"
+                          uri="http://olivier.huguenot.free.fr/images/exclamation.png"
                           onPress={() => {
                               this.props.nav.push({
                                   id: 'legal',
@@ -109,12 +109,9 @@ export default class MainScene extends Component {
                               });
                           }}/>
               <MainButton name='Question' 
-                          uri="https://lh3.googleusercontent.com/WjU5CdsZ_mazg6Em4V4nCd97nlMHzgVH6FqEiICEGwPGBVDa5eOeiZbw02Mjbz8W25QHOY8pLmKfV_U=w1440-h839"
+                          uri="http://olivier.huguenot.free.fr/images/question.png"
                           onPress={() => {
-                              this.props.nav.push({
-                                  id: 'home',
-                                  data: Object
-                                });
+                              Alert.alert("question pushed");
                           }}/>
             </View>
           </View>
@@ -263,8 +260,8 @@ var styles = StyleSheet.create({
 /* CALLBACKS                                                                                                     */
 /* ============================================================================================================= */
 const onHomePressed = () => {
-  //Alert.alert("home press");
-  this.navigator.push(this);
+  Alert.alert("home press");
+  //this.navigator.push(this);
 }
 
 const onPhonePressed = () => {

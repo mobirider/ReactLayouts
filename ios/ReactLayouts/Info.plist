@@ -24,8 +24,11 @@
 	<string>MNxACmiUsc3qNIrGRvCJ4fy2xjR1VJA6z2q8M</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+    <key>NSAllowsArbitraryLoads</key><true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
