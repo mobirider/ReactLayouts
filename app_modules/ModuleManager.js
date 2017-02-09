@@ -18,6 +18,7 @@ import {
 
 // modules go here
 import LegalScene from './LegalScene.js';
+import AboutScene from './AboutScene.js';
 import MainScene from './../app/MainScene.js';
 
 export default class ModuleManager extends Component {
@@ -26,10 +27,12 @@ export default class ModuleManager extends Component {
             <Navigator  initialRoute={{ title: 'home', index: 0 }}
                         renderScene={(route, navigator) => {
                             switch (route.id) {
-                            default:
-                                return <MainScene nav = {navigator} />
                             case 'legal':
                                 return <LegalScene nav = {navigator} />
+                            case 'about':
+                                return <AboutScene nav = {navigator} />
+                            default:
+                                return <MainScene nav = {navigator} />
                             }}
                         }/>
         );

@@ -8,7 +8,6 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  Alert,
   WebView,
   Navigator,
   TouchableOpacity,
@@ -21,7 +20,7 @@ import MainButton from './../app/MainButton.js';
 /* ============================================================================================================= */
 /* MAIN CLASS                                                                                                    */
 /* ============================================================================================================= */
-export default class LegalScene extends Component {
+export default class AboutScene extends Component {
     render() {
     return (
         <View style={{backgroundColor:'white', flexDirection:'column', flex:1, paddingTop:22 }}>
@@ -34,29 +33,13 @@ export default class LegalScene extends Component {
                 backgroundColor: 'white',
                 height: 200,
               }} 
-              source={{uri:'http://www.mutuelle-viasante.fr/mentions-legales'}} />
+              source={{uri:'http://www.mutuelle-viasante.fr/notre-mutuelle-sante'}} />
       </View>
     );
   }
 }
 
 
-LegalScene.propTypes = {
+AboutScene.propTypes = {
   nav: PropTypes.object.isRequired,
 }
-
-const goBack = () => {
-  this.props.nav.pop({
-                                  id: 'home',
-                                  data: Object
-                              });
-}
-
-
-/* ============================================================================================================= */
-/* CALLBACKS                                                                                                     */
-/* ============================================================================================================= */
-
-
-
-

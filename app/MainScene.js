@@ -18,8 +18,14 @@ import {
 } from 'react-native';
 
 import MainButton from './MainButton.js';
-import LegalButton from '../app_modules/LegalButton.js';
 import ModuleManager from '../app_modules/ModuleManager.js';
+
+
+/* ============================================================================================================= */
+/* CODE PUSH                                                                                                     */
+/* ============================================================================================================= */
+import CodePush from "react-native-code-push";
+
 
 /* ============================================================================================================= */
 /* MAIN CLASS                                                                                                    */
@@ -81,9 +87,8 @@ export default class MainScene extends Component {
                              source={require('./../images/user.png')}>
                       </Image>
                   </TouchableOpacity>
-                  <Text ellipsizeMode='clip' numberOfLines={2} style={styles.content_text}>Mes informations personnelles</Text>
+                  <Text numberOfLines={2} style={styles.content_text}>Mes informations personnelles</Text>
               </View>
-
               <View style={styles.content_textbutton}>
                     <TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
                       <Image style={styles.content_image}
@@ -100,7 +105,7 @@ export default class MainScene extends Component {
           {/* ROW 3 */}
           <View style={styles.content_col}>  
             <View style={styles.content_row}>
-              <MainButton name='Legal' 
+              <MainButton name='Mentions légales' 
                           uri="http://olivier.huguenot.free.fr/images/exclamation.png"
                           onPress={() => {
                               this.props.nav.push({
@@ -108,11 +113,15 @@ export default class MainScene extends Component {
                                   data: Object
                               });
                           }}/>
-              <MainButton name='Question' 
+              <MainButton name='Qui sommes-nous ?' 
                           uri="http://olivier.huguenot.free.fr/images/question.png"
                           onPress={() => {
-                              Alert.alert("question pushed");
+                              this.props.nav.push({
+                                  id: 'about',
+                                  data: Object
+                              });                          
                           }}/>
+              
             </View>
           </View>
         </View>
@@ -188,7 +197,7 @@ var styles = StyleSheet.create({
     content: {
       backgroundColor:'white',
       flex:1,
-      paddingBottom:32,
+      paddingBottom:0,
       paddingTop:16,
     },
 
@@ -270,12 +279,12 @@ const onPhonePressed = () => {
 
 const onSettingsPressed = () => {
   // Alert.alert("settings press");
-  // CodePush.sync({
-  //   // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
-  //   // Il ne faut pas de dialogue d'update, ça doit être invisible.
-  //   updateDialog: false, 
-  //   installMode: CodePush.InstallMode.IMMEDIATE
-  // });
+  CodePush.sync({
+    // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
+    // Il ne faut pas de dialogue d'update, ça doit être invisible.
+    updateDialog: true, 
+    installMode: CodePush.InstallMode.IMMEDIATE
+  });
 }
 
 const onButtonPressed = () => {

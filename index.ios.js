@@ -26,7 +26,10 @@ import ModuleManager from './app_modules/ModuleManager';
 import CodePush from "react-native-code-push";
 
 // check updates each time app returns to foreground
-let codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME };
+let codePushOptions = {
+    checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+    installMode: CodePush.InstallMode.ON_NEXT_RESUME
+};
 
 // manually check updates
 // let codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
