@@ -1,9 +1,11 @@
 /**
- * Legal Module
+ * Sample React Native App
+ * https://github.com/facebook/react-native
  * @flow
  */
 'use-strict';
-import React, { Component } from 'react';
+
+import React, { Component, PropTypes } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -11,53 +13,56 @@ import {
   Alert,
   TouchableOpacity,
   Image,
-  View
+  View,
+  Navigator
 } from 'react-native';
-
-
 
 /* ============================================================================================================= */
 /* MAIN CLASS                                                                                                    */
 /* ============================================================================================================= */
-export default class LegalButton extends Component {
-
-  	render() {
-		return (
-		    <View style={styles.content_textbutton}>
-				<TouchableOpacity style={styles.content_button} onPress={onButtonPressed}>
-				  <Image style={styles.content_image}
-				         resizeMode={"contain"}
-				         source={require('./../images/exclamation.png')}>
-				  </Image>
-				</TouchableOpacity>
-			<Text style={styles.content_text}>Module Button</Text>
-			</View>
-		);
-	}
+export default class MainButton extends Component {
+    render() {
+    return (
+        <View style={styles.content_textbutton}>
+        	<TouchableOpacity style={styles.content_button} onPress={this.props.onPress}>
+          		<Image style={styles.content_image}
+                	   resizeMode={"contain"}
+                       source={{uri:this.props.uri}}>
+          		</Image>
+        	</TouchableOpacity>
+      		<Text style={styles.content_text}>{this.props.name}</Text>
+      	</View>
+    );
+  }
 }
 
 
-export class LegalScene extends Component {
-
-  	render() {
-		return (
-		    <View>
-			</View>
-		);
-	}
-}
+/* ============================================================================================================= */
+/* PROPS                                                                                                         */
+/* ============================================================================================================= */
+MainButton.propTypes = {
+  name:  PropTypes.string.isRequired,
+  uri:  PropTypes.string.isRequired,
+  onPress:  PropTypes.func.isRequired,
+};
 
 
 /* ============================================================================================================= */
 /* STYLESHEETS                                                                                                   */
 /* ============================================================================================================= */
 var styles = StyleSheet.create({
+    content_row: {
+      flex:1,
+      /*backgroundColor:'teal',*/
+      flexDirection:'row',
+      justifyContent: 'space-around'
+    },
 
     content_textbutton: {
       flexDirection:'column',
       justifyContent: 'space-around',
       alignItems: 'center',
-      backgroundColor: 'yellow',
+      /*backgroundColor: 'yellow',*/
       height:128,
       width:144
     },
@@ -68,7 +73,6 @@ var styles = StyleSheet.create({
     },
     content_text: {
       color:'gray',
-      /*backgroundColor: "black",*/
       textAlign:'center'
     },
     content_button: {
@@ -90,8 +94,5 @@ var styles = StyleSheet.create({
 /* CALLBACKS                                                                                                     */
 /* ============================================================================================================= */
 const onButtonPressed = () => {
-  
-
-
-
+	Alert.alert("MainButton press");
 }

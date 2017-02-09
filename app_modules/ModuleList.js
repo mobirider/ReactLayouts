@@ -22,12 +22,12 @@ import LegalButton from './legal.js';
 
 export default class ModuleManager {
 
-	constructor() {
-    	
-  	}
+  constructor() {
+      
+    }
 
-  	getModule(aIndex) {
-  		return LegalButton();
-  	}
+    getModule(aIndex) {
+      return LegalButton();
+    }
 
 }
