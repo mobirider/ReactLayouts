@@ -18,6 +18,9 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
+    // 2. Override the getJSBundleFile method in order to let
+    // the CodePush runtime determine where to get the JS
+    // bundle location from on each app start
     @Override
     protected String getJSBundleFile() {
       return CodePush.getJSBundleFile();
@@ -30,10 +33,18 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
+      // 3. Instantiate an instance of the CodePush runtime and add it to the list of
+      // existing packages, specifying the right deployment key. If you don't already
+      // have it, you can run "code-push deployment ls <appName> -k" to retrieve your key.
+      /*return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
+      );*/
+      return Arrays.<ReactPackage>asList(
+              new MainReactPackage(),
+              new CodePush("MNxACmiUsc3qNIrGRvCJ4fy2xjR1VJA6z2q8M", MainApplication.this, BuildConfig.DEBUG)
       );
+
     }
   };
 
