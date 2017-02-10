@@ -113,6 +113,7 @@ export default class MainScene extends Component {
                                   data: Object
                               });
                           }}/>
+                          {/* ROW 3 
               <MainButton name='Qui sommes-nous ?' 
                           uri="http://olivier.huguenot.free.fr/images/question.png"
                           onPress={() => {
@@ -121,7 +122,7 @@ export default class MainScene extends Component {
                                   data: Object
                               });                          
                           }}/>
-              
+              */}
             </View>
           </View>
         </View>
