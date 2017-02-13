@@ -19,7 +19,7 @@
 {
   NSURL *jsCodeLocation;
   
-#if defined(__i386__)  || defined(__x86_64__) // #ifdef DEBUG
+#if defined(__i386__)  || defined(__x86_64__)
   /* Run code if in Simulator */
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
@@ -41,14 +41,6 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  
-  
-  // DEBUG
-//  UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"debug" message:[jsCodeLocation path] preferredStyle:(UIAlertControllerStyleAlert)];
-//  [alert addAction:[UIAlertAction actionWithTitle:@"ok" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-//    ;
-//  }]];
-//  [rootViewController presentViewController:alert animated:NO completion:nil];
   
   return YES;
 }

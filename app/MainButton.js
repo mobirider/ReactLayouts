@@ -27,7 +27,7 @@ export default class MainButton extends Component {
         	<TouchableOpacity style={styles.content_button} onPress={this.props.onPress}>
           		<Image style={styles.content_image}
                 	   resizeMode={"contain"}
-                       source={{uri:this.props.uri}}>
+                     source={{uri:this.props.uri}}>
           		</Image>
         	</TouchableOpacity>
       		<Text style={styles.content_text}>{this.props.name}</Text>
@@ -88,11 +88,3 @@ var styles = StyleSheet.create({
       shadowOpacity: 1.0
     },
 });
-
-
-/* ============================================================================================================= */
-/* CALLBACKS                                                                                                     */
-/* ============================================================================================================= */
-const onButtonPressed = () => {
-	Alert.alert("MainButton press");
-}

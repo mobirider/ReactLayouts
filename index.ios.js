@@ -17,19 +17,13 @@ import {
   Navigator
 } from 'react-native';
 
-import MainScene from './app/MainScene';
 import ModuleManager from './app_modules/ModuleManager';
 
 /* ============================================================================================================= */
 /* CODE PUSH                                                                                                     */
 /* ============================================================================================================= */
 import CodePush from "react-native-code-push";
-
-// check updates each time app returns to foreground
-
-// manually check updates
-// let codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
-ReactLayouts = CodePush(ReactLayouts); // cette syntaxe lô
+ReactLayouts = CodePush(ReactLayouts);
 
 /* ============================================================================================================= */
 /* MAIN CLASS                                                                                                    */

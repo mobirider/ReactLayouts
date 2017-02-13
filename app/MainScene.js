@@ -33,9 +33,11 @@ import CodePush from "react-native-code-push";
 /* ============================================================================================================= */
 export default class MainScene extends Component {
 
+
+  // Callback appelée lorsque le 1er render() a été appelé.
   componentDidMount() {
-      // Alert.alert("componentDidMount");
-      AppState.addEventListener('change', this._handleAppStateChange);
+      // Création d'une callback sur le changement de status de l'app
+      AppState.addEventListener('change', this.handleAppStateChange);
 
       // CodePush.sync({
       //     // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
@@ -44,25 +46,30 @@ export default class MainScene extends Component {
       //     installMode: CodePush.InstallMode.IMMEDIATE
       // });
 
+      // Ceci va vérifier puis télécharger une update CodePush, puis la mettre de côté pour un déploiement la prochaine
+      // fois que l'app passera en foreground.
+      // Si on ne veut pas attendre le prochain passage en foreground et installer tout de suite, utiliser 'CodePush.InstallMode.IMMEDIATE'
+      // Attention, c'est moins plaisant côté UX.
       CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
-
   }
 
-  _handleAppStateChange(currentAppState) {
-      // this.setState({ currentAppState, });
+
+  // Callback enregistrée sur le changement d'état de l'app.
+  handleAppStateChange(currentAppState) {
+
       if(currentAppState == 'active') {
-          // Alert.alert("_handleAppStateChange: " + currentAppState);
-      
+          // si on vient de passer en foreground, vérifier, télécharger, puis préparer la prochaine màj.
+          CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+
           //  CodePush.sync({
           //     // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
           //     // Il ne faut pas de dialogue d'update, ça doit être invisible.
           //     updateDialog: true, 
           //     installMode: CodePush.InstallMode.IMMEDIATE
           // });
-          CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
-
       }
   }
+
 
   render() {
     return (
@@ -135,11 +142,17 @@ export default class MainScene extends Component {
           </View>
 
 
-          {/* ROW 3 */}
+          {/* ROW 3 
+            Ici on réutilise un Component ("MainButton")
+            Attention, on ne peut pas passer d'images stockées en local dans le package, seulement une URI pour aller les télécharger au runtime !!!
+            WHAT. THE. F*CK.
+            En revanche, passer des *liens directs* vers des images fonctionne (sauf en mode avion trololol). 
+            Il y a toutefois un cache local (encore heureux !).
+          */}
           <View style={styles.content_col}>  
             <View style={styles.content_row}>
               <MainButton name='Mentions légales' 
-                          uri="http://olivier.huguenot.free.fr/images/exclamation.png"
+                          uri="http://i.imgur.com/8tsM1ut.png"
                           onPress={() => {
                               this.props.nav.push({
                                   id: 'legal',
@@ -148,14 +161,13 @@ export default class MainScene extends Component {
                           }}/>
               
               <MainButton name='Qui sommes-nous ?' 
-                          uri="http://olivier.huguenot.free.fr/images/question.png"
+                          uri="http://i.imgur.com/gmsI1Cq.png"
                           onPress={() => {
                               this.props.nav.push({
                                   id: 'about',
                                   data: Object
                               });                          
                           }}/> 
-              
             </View>
           </View>
         </View>
