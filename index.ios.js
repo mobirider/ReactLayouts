@@ -42,13 +42,6 @@ export default class ReactLayouts extends Component {
   render() {
     return (
       <ModuleManager />
-      /*<Navigator
-        initialRoute={{ title: 'My Initial Scene', index: 0 }}
-        renderScene={(route, navigator) =>
-            <MainScene nav = {navigator} >
-            </MainScene>
-        }
-      />*/
     );
   }
 }

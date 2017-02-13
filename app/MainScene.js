@@ -14,6 +14,7 @@ import {
   TouchableOpacity,
   Image,
   View,
+  AppState,
   Navigator
 } from 'react-native';
 
@@ -31,6 +32,33 @@ import CodePush from "react-native-code-push";
 /* MAIN CLASS                                                                                                    */
 /* ============================================================================================================= */
 export default class MainScene extends Component {
+
+  componentDidMount() {
+      Alert.alert("componentDidMount");
+      AppState.addEventListener('change', this._handleAppStateChange);
+
+      CodePush.sync({
+          // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
+          // Il ne faut pas de dialogue d'update, ça doit être invisible.
+          updateDialog: true, 
+          installMode: CodePush.InstallMode.IMMEDIATE
+      });
+  }
+
+  _handleAppStateChange(currentAppState) {
+      // this.setState({ currentAppState, });
+      if(currentAppState == 'active') {
+          Alert.alert("_handleAppStateChange: " + currentAppState);
+      
+           CodePush.sync({
+              // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
+              // Il ne faut pas de dialogue d'update, ça doit être invisible.
+              updateDialog: true, 
+              installMode: CodePush.InstallMode.IMMEDIATE
+          });
+      }
+  }
+
   render() {
     return (
       <View style={styles.mainContainer}>
@@ -113,7 +141,7 @@ export default class MainScene extends Component {
                                   data: Object
                               });
                           }}/>
-                          {/* ROW 3 
+              
               <MainButton name='Qui sommes-nous ?' 
                           uri="http://olivier.huguenot.free.fr/images/question.png"
                           onPress={() => {
@@ -121,8 +149,8 @@ export default class MainScene extends Component {
                                   id: 'about',
                                   data: Object
                               });                          
-                          }}/>
-              */}
+                          }}/> 
+              
             </View>
           </View>
         </View>
