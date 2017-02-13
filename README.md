@@ -167,10 +167,10 @@ Attention, si les fichiers source JS n'ont pas été modifiés depuis le dernier
 - Pour iOS:
 ```sh
 code-push release-react MonProjet-ios ios -d Staging
-```sh
+```
 
 - Pour Android:
 ```sh
 code-push release-react MonProjet-android android -d Staging
-```sh
+```
 
