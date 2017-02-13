@@ -34,28 +34,33 @@ import CodePush from "react-native-code-push";
 export default class MainScene extends Component {
 
   componentDidMount() {
-      Alert.alert("componentDidMount");
+      // Alert.alert("componentDidMount");
       AppState.addEventListener('change', this._handleAppStateChange);
 
-      CodePush.sync({
-          // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
-          // Il ne faut pas de dialogue d'update, ça doit être invisible.
-          updateDialog: true, 
-          installMode: CodePush.InstallMode.IMMEDIATE
-      });
+      // CodePush.sync({
+      //     // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
+      //     // Il ne faut pas de dialogue d'update, ça doit être invisible.
+      //     updateDialog: true, 
+      //     installMode: CodePush.InstallMode.IMMEDIATE
+      // });
+
+      CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+
   }
 
   _handleAppStateChange(currentAppState) {
       // this.setState({ currentAppState, });
       if(currentAppState == 'active') {
-          Alert.alert("_handleAppStateChange: " + currentAppState);
+          // Alert.alert("_handleAppStateChange: " + currentAppState);
       
-           CodePush.sync({
-              // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
-              // Il ne faut pas de dialogue d'update, ça doit être invisible.
-              updateDialog: true, 
-              installMode: CodePush.InstallMode.IMMEDIATE
-          });
+          //  CodePush.sync({
+          //     // ATTENTION: l'option 'updateDialog: true' impliquera le rejet de l'app par Apple. 
+          //     // Il ne faut pas de dialogue d'update, ça doit être invisible.
+          //     updateDialog: true, 
+          //     installMode: CodePush.InstallMode.IMMEDIATE
+          // });
+          CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+
       }
   }
 
