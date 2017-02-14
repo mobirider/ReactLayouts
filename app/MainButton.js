@@ -76,7 +76,7 @@ var styles = StyleSheet.create({
       textAlign:'center'
     },
     content_button: {
-      backgroundColor: 'rgba(17, 93, 25, 255)',
+      backgroundColor: 'rgba(158, 212, 255, 255)',
       borderRadius: 10,
       padding: 10,
       shadowColor: '#000000',
