@@ -86,7 +86,7 @@ export default class MainScene extends Component {
           
           {/* SEPARATEUR ORANGE */}
           <View style={{flex: 1, flexDirection: 'row'}}>
-            <View style={{flex:1, width: 1, height: 10, backgroundColor: 'rgba(232,92,33,255)'}} />
+            <View style={{flex:1, width: 1, height: 10, backgroundColor: '$SEPARATOR_COLOR'}} />
           </View>
         </View>
 

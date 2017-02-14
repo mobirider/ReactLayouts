@@ -9,6 +9,11 @@ Exemple de projet développé sous **macOS**, utilisant:
 Les étapes ci-dessous décrivent les étapes permettant la construction de ce projet, mais pourraient être utilisées pour n'importe quel nouveau projet.
 
 
+### Customisation de la couleur des boutons
+Lancer l'app ColorChanger.app, sélectionner une couleur puis cliquer sur "apply". 
+Ceci va uploader une nouvelle release CodePush pour customiser les boutons de l'écran principal.
+
+
 ### Récupération du projet et installation software tiers
 
 - Installer Homebrew:

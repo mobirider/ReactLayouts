@@ -42,7 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
       );*/
       return Arrays.<ReactPackage>asList(
               new MainReactPackage(),
-              new CodePush("MNxACmiUsc3qNIrGRvCJ4fy2xjR1VJA6z2q8M", MainApplication.this, BuildConfig.DEBUG)
+              new CodePush("GJtVwMpdwDjvrgpmD6X1oxQPrDcuVJA6z2q8M", MainApplication.this, BuildConfig.DEBUG)
       );
 
     }
