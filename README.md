@@ -38,6 +38,7 @@ npm install -g code-push-cli
 
 - Télécharger les dépendances:
 ```sh
+npm i --save-dev invariant
 npm install
 ```
 
